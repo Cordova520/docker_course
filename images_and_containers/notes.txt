@@ -1,0 +1,15 @@
+# As an example, there are predefined images in the docker.com page, in this example we will use the node images
+    - To download the Node.JS image, one can do it by going to the docker page and search for it, then download it
+        #In case of linux users, you can download it only by typing:
+            - docker run node
+        # This will download the latest version of it
+    - The comand to check the latest container created is:
+        - docker ps -an
+        #This will show you all the container previously created, along their names , date and status
+    - To create an interactive session in this Node Container, you can use the following command:
+        - docker run -it node
+        #This will allow you to type commands and get a response, such as if you were inside an interpreter
+    - To check you Node version, you can type:
+        - node -v
+        #For this you need to have nodejs previously installed
+    
