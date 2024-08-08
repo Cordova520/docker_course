@@ -30,5 +30,25 @@
     - After finishing the app's run, the container will stop by itself
     - If you want to start the container you need to attach yourself to it, but consider to add the -i argument to attach to it in an interactive mode
 
+#To remove a container use the argument rm. For example: docker rm <container_name>
+    - It is not possible to remove a running container
+#To remove an image use the argument rmi: docker rmi <image_name>
+    -You can only remove images with no containers
+    -To remove all images that are using no containers use the command: docker image prune
+    - --rm argument makes the container to remove itself after it is stopped: docker run -p 3000:80 -d --rm <container>
+
+#To get information about an Image, such as size, config, path, date of creation, etc you can use the argument "inspect"
+    - docker image inspect <image_name>
+    It displays a dictionary with all the details
+
+# Whe new files want to be added inside a container we can use the "cp" argument to do so:
+    - First we need our container to be running
+    - type the following command following the syntax: docker cp <FILE_OR_DIRECTORY_YOU_WANT_TO_COPY> <CONTAINER_NAME>:<RECIPIENT_DIRECTORY_INSIDE_THE_CONTAINER>
+
+    #In the other hand, if you want to get a file from a container to your machine you can use the following commandL
+        docker cp <CONTAINER_NAME>:<FILE_INSIDE_CONTAINER> <PATH_WHERE_IT_WOULD_BE_STORED>
+
+        -You can use this to retrieve for example log files inside a container
+
 
     
