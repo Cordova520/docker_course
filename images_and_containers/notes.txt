@@ -12,4 +12,23 @@
     - To check you Node version, you can type:
         - node -v
         #For this you need to have nodejs previously installed
+
+# By running docker --help you can get a list of commands you can run in docker
+# if you want to see all the containers that are currenty runnung use: docker ps
+# To see all the containers previously creeated use: docker ps -a
+# "docker run" creates a new container
+# To restart a container previously stopped use: docker start <container_name>
+# Attaching to an already-running Container
+    - By default, if you run a Container without -d, you run in "attached mode". 
+        Which menas you are always listening what the app recieves, therefore it blocks the terminal you are using
+    - If you started a container in detached mode(i.e. with -d) you can still attach to it afterwards withoput restarting the Container with the following command:
+        docker attach <CONTAINER_NAME>
+
+# When creating a non-web app like in python, c++, go, etc, it is posible to create an image and a container and also interact with them iside the container by adding the arguments -i and -t when running it:
+    docker run -i -t <container>
+
+    - After finishing the app's run, the container will stop by itself
+    - If you want to start the container you need to attach yourself to it, but consider to add the -i argument to attach to it in an interactive mode
+
+
     
