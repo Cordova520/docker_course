@@ -1,0 +1,4 @@
+# In order to enable docker you must run the following command in a separate terminal:
+    sudo systemctl enable docker
+# To check Docker status use the following command:
+    sudo systemctl status docker
