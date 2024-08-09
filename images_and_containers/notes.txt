@@ -12,7 +12,7 @@
     - To check you Node version, you can type:
         - node -v
         #For this you need to have nodejs previously installed
-        
+
 # Images can be created by create the Dockerfile, after that run the command:
     - docker built .
 
@@ -59,6 +59,32 @@
     - <Image>:<tag>
     - It can also be created when the image is build:
         docker build -t <name>:<tag>
+
+# There are 2 ways of sharing docker images:
+    1- Docker Hub
+    2- Private Registry
+
+    1st way:
+        -Share the Dockerfile and let the other people build their own images
+
+    2nd Way:
+        1) First go to Dockerhub and create your own repository
+        2) On your machine, create a new image with the name of your repository <username>/<repository_name>
+            - Or you can change the name of an existing image using:
+                docker tag <old_name> <new_name>
+        3) Use docker push <image_name>
+
+        If an acces error occurs enter your Docker inside
+            docker login
+        Try to push again
+# To download an image:
+    1) Delete all your images:
+        docker iamge prune -a
+    2) Download the image:
+        docker pull <usename>/<repository_name>
+        (As log as this is a public repository you can do this without even login)
+        This will also download the latest version of the image
+    
 
 
     
