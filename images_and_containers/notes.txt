@@ -12,6 +12,9 @@
     - To check you Node version, you can type:
         - node -v
         #For this you need to have nodejs previously installed
+        
+# Images can be created by create the Dockerfile, after that run the command:
+    - docker built .
 
 # By running docker --help you can get a list of commands you can run in docker
 # if you want to see all the containers that are currenty runnung use: docker ps
@@ -30,14 +33,14 @@
     - After finishing the app's run, the container will stop by itself
     - If you want to start the container you need to attach yourself to it, but consider to add the -i argument to attach to it in an interactive mode
 
-#To remove a container use the argument rm. For example: docker rm <container_name>
+# To remove a container use the argument rm. For example: docker rm <container_name>
     - It is not possible to remove a running container
-#To remove an image use the argument rmi: docker rmi <image_name>
+# To remove an image use the argument rmi: docker rmi <image_name>
     -You can only remove images with no containers
     -To remove all images that are using no containers use the command: docker image prune
     - --rm argument makes the container to remove itself after it is stopped: docker run -p 3000:80 -d --rm <container>
 
-#To get information about an Image, such as size, config, path, date of creation, etc you can use the argument "inspect"
+# To get information about an Image, such as size, config, path, date of creation, etc you can use the argument "inspect"
     - docker image inspect <image_name>
     It displays a dictionary with all the details
 
@@ -49,6 +52,13 @@
         docker cp <CONTAINER_NAME>:<FILE_INSIDE_CONTAINER> <PATH_WHERE_IT_WOULD_BE_STORED>
 
         -You can use this to retrieve for example log files inside a container
+# For tagging images and containers with the name you want use the following syntax:
+    - docker run -p <HOST>:<PORT> --name <NAME_YOU_WANT> <IMAGE_NAME>
+
+# The name of the image is modified inside the Dockerfile
+    - <Image>:<tag>
+    - It can also be created when the image is build:
+        docker build -t <name>:<tag>
 
 
     
