@@ -1,0 +1,3 @@
+# Volumes are folders on your host machine hard drive which are mounted ("made available, mapped) into containers
+    Volumes persist of a container shuts down. If a container (re-) starts and mounts a volumes, any data inside of that volume is available in the container.
+    A container can write data into a volume and read data from it.
