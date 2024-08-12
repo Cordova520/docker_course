@@ -1,3 +1,42 @@
 # Volumes are folders on your host machine hard drive which are mounted ("made available, mapped) into containers
     Volumes persist of a container shuts down. If a container (re-) starts and mounts a volumes, any data inside of that volume is available in the container.
     A container can write data into a volume and read data from it.
+
+# There are 2 types of volumes:
+    - Anonymous Volumes
+
+        Anonymous volumes are not removed when not using --rm argument, It will start pilling up a bunch of unused anonymous volumes
+        YOu can clear them via:
+            docker vokune rn <VOLUME_NAME>
+            or
+            docker volume prune 
+
+    - Named Volumes
+        These are great for data which should be persistent.
+        To create one, you should use the following syntax:
+        
+        docker run -d -p <host>:<port> --rm --name <CONTAINER_NAME> -v <VOLUME_NAME>:<PATH_OF_THE_CONTAINER> <IMAGE_NAME>
+
+        PATH_OF_THE_CONTAINER is where the volume will be saved in our machine, if the folder does not exist it will create it.
+        This volume will not be removed when the containes is stopped
+
+        when checking for volumes, our volumes will be there
+
+    In both cases sets up a folder/path on your host machine exact location is unknown to you (=dev). MAnaged via docker volume commands
+
+    To see al the volumes you have, run the command:
+        docker volume ls
+
+    The volume exist as long as our container exists.
+ # A defined path in the container is mapped to the created volume/mount
+ # Bind mounts (Code sharing)
+    BIng mounts are managing by you. You define a folder/path on your host machine
+    Great for persistent and editable (by you) data
+    This can not be declared inside the Dockerfile
+    For creating a Bind Mount you must add the following in your container creation command, right after the volume declaration
+        -v "<PATH_ON_YOUR_MACHINE>:<PATH_INSIDE_THE_CONTAINER>"
+
+        NOTE: <PATH_ON_YOUR_MACHINE> must be an absolute path.
+
+        you can do that by use the enviroment variable $(pwd)
+
