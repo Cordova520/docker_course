@@ -39,4 +39,47 @@
         NOTE: <PATH_ON_YOUR_MACHINE> must be an absolute path.
 
         you can do that by use the enviroment variable $(pwd)
+# Beside creating a volume along the command line when creating a container, you can also create a Named Volume with the following command:
+    docker volume create <VOLUME_NAME>
+
+# You can also inspect the content of you volume by typing:
+    docker volume inspect <VOLUME_NAME>
+
+# Volumes also can be deleted  by using:
+    docker volume rm <VOLUME_NAME>
+
+    -This only works for unused volumes
+    - When a volume is removed, you will lose all the data inside it
+
+# Inside a .dockerignore file, you can specify what files not to be copied to the docker image
+
+# ARGument & ENVironment Variables
+    Docker Support build-time ARGuments and runtime ENVironment Variables
+
+    -ARG:
+        -available inside Dockerfile, NOT accessible in CMD or any applicarion Code
+        - Set on image build (docker build) via --build-arg
+    -ENV:
+        - Available inside of Dockerfile & in application Code
+        - Set via ENV in Dockerfile or via --env on docker run
+
+    ENVironment variables can be declared inside the Dockerfile under the name:
+        ENV <VARIABLE_NAME> <VALUE>
+    
+    Also must ve declared with the use of:
+     EXPOSE $<VARIABLE_NAME>
+
+    On the command to create our container we cal also declare it by adding the argument:
+        --env <VARIABLE_NAME>=<VALUE>
+
+        this syntax is also valid:
+
+        --e <VARIABLE_NAME>=<VALUE>
+
+    It is also possible to have a fila named .env, where all the environment variables will be declared
+    This is used with the command when creating the container:
+        --env-file <PATH_ON_YOUR_MACHINE>
+
+    
+
 

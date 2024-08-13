@@ -8,7 +8,10 @@ RUN npm install
 
 COPY . .
 
-EXPOSE 80
+#Environment variable used for server.js, in this case, the port i will be listening to
+ENV PORT 80
+
+EXPOSE $PORT
 #Folder where the files created will persist
 # VOLUME [ "/app/feedback" ]
 
