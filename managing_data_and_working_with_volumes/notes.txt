@@ -80,6 +80,16 @@
     This is used with the command when creating the container:
         --env-file <PATH_ON_YOUR_MACHINE>
 
+# Buildtime ARGuments
+
+    This is an argument used inside the Dockerfile where you can stablish and set the default value for this environment variable
+    Is used with the ARG variable inside the Dockerfile after declared in the ENV variable with a "$" upfront, to declare that this is an enviroment variable
+
+    To modify this value, you can use the following syntax in your build command:
+        docker build -t <IMAGE_NAME>:<TAG> --build-arg <VARIABLE_NAME> <VARIABLE_VALUE> .
+
+    This helps to create different images without to modify the Dockerfile
+
     
 
 
