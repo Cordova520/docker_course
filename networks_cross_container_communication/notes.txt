@@ -1,0 +1,45 @@
+# It is possible to connect a container to a web app, by using:
+    "docker.host.machine" on the url of your app
+
+# It is also possible to create a container with a MongoDB database inside it, just use:
+    docker pull mongo 
+
+    And start a container using:
+        docker start mongo
+    
+# Whe interconnecting 2 containers it is possible via the IPAdress of one another:
+    you can get this info using:
+        docker container inspect <CONTAINER_NAME>
+
+        and then search for the "IPAdress" key inside that dictionary
+
+# Container Networks allows containers to communicate between them, you can add container to a network by adding:
+    --network <MY_NETWORK>
+
+    to yor docker run command
+
+    With a Docker network, all containers can communicate with each other and IPs are automatically resolved
+
+    To create a Container network use the following command:
+        docker network create <NETWORK_NAME>
+
+    You can check all the networks created by using:
+        docker nework ls
+    
+    *Inside a web app container, you can connect a mongodb container to it by adding the container's name to the url, once they are both in the same network
+
+    Docker neworks actually support different kinds of "Drivers" which influence the behavior of the Network.
+    The default driver is the "bridge" diver. It provides the behavior shown in this module.
+    The driver can be set when a Network is created, simply by adding the --driver option.
+        docker network create --driver bridge <NETWORK_NAME>
+
+    Of course if you want to use the "bridge" driver. you can simply omit the entire option since "bridge" is the default option.
+    Docker also supports these alternative drivers - though you will use the "bridge" driver in most cases:
+        - host: For standalone containers, isolation between container and host system is removed.
+        - overlay: Multiple Docker daemons are able to connect with each other. Only works in "Swarm" mode which is a dated/almost deprecated way of connecting multiple containers
+        - none: All networking is disabled
+        - Third-party plugins: You can install third-party plugins which then may add all kinds of behaviors and functionalities
+
+
+
+    

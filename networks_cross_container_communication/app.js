@@ -22,7 +22,7 @@ app.post('/favorites', async (req, res) => {
     const favUrl = req.body.url;
 
     try {
-        if (favType != 'movie' && favType !== 'character'){
+        if (favType !== 'movie' && favType !== 'character'){
             throw new Error('"type shoud be "movie" or "character"');
         }
         const existingFav = await Favorite.findOne({ name: favName});
@@ -68,14 +68,13 @@ app.get( '/people', async(req, res) => {
 });
 
 mongoose.connect(
-    'mongodb://localhost:27017',
-
+    'mongodb://mongodb:27017/swfavorites',
     {useNewUrlParser: true},
     (err) =>{
         if (err){
-            console.llog(err);
+            console.log(err);
         }else{
-            app.listen(300);
+            app.listen(3000);
         }
     }
 );
