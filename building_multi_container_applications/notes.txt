@@ -1,0 +1,5 @@
+# This folders inted to apply all the knowledge so far un dockerizing a web projec (provided by the instructor). By dockerizing a DB, backend and frontend
+    To comunicate the backend container with the DB Container, using MAC please replace "localhost" inside the app.js file, with "host.docker.internal".
+    THIS ONLY WORKS ON MAC
+    
+    For linux, use the Static IP "172.17.0.1"
